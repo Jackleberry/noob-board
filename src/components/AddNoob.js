@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
+import noobActions from '../actions/noob';
 
-let nextId = 0;
 const AddNoob = (props, { store }) => {
   let input;
   return (
@@ -9,11 +9,7 @@ const AddNoob = (props, { store }) => {
         input = node;
       }} />
       <button onClick={() => {
-        store.dispatch({
-          type: "ADD_NOOB",
-          id: nextId++,
-          name: input.value
-        });
+        store.dispatch(noobActions.addNoob(input.value));
         input.value = '';
         input.focus();
         }}>

@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import NoobList from './NoobList';
+import noobActions from '../actions/noob';
 
 const noobsInAction = ({noobs, visibilityFilter}) => {
   switch (visibilityFilter) {
@@ -23,12 +24,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onNoobClick: (id) => {
-      dispatch({
-        type: "TOGGLE_NOOB",
-        id
-      });
-    }
+    onNoobClick: id => dispatch(noobActions.toggleNoob(id))
   };
 };
 
