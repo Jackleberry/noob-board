@@ -1,4 +1,3 @@
-import { createStore, combineReducers } from 'redux';
 import React, { PropTypes } from 'react';
 import AddNoob from './AddNoob';
 import Footer from './Footer';
