@@ -13,12 +13,12 @@ const Noob = ({noobPoints, assassinPoints, outOfAction, onRemoveClick, onNoobCli
       {children}
     </div>
     <div className="col-xs-3 col-md-3">
-      <button className="btn btn-default pull-right" onClick={onNoobClick} title="Noob">
+      <button className="btn btn-default pull-right noob" onClick={onNoobClick} title="Noob">
         <span className="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
         {noobPoints}
       </button>
       <span className="pull-right">&nbsp;</span>
-      <button className="btn btn-default pull-right" onClick={onAssassinClick} title="Assassin">
+      <button className="btn btn-default pull-right assassin" onClick={onAssassinClick} title="Assassin">
         <span className="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>&nbsp;
         {assassinPoints}
       </button>
