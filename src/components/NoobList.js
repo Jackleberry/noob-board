@@ -3,24 +3,34 @@ import Noob from './Noob';
 
 const NoobList = ({
   noobs,
-  onNoobClick
+  onRemoveClick,
+  onNoobClick,
+  onAssassinClick
 }) => {
   return (
-    <ul>
+    <div className="panel panel-default">
+      <ul className="list-group">
       {noobs.map(n =>
         <Noob
           key = {n.id}
+          noobPoints={n.noobPoints}
+          assassinPoints={n.assassinPoints}
           outOfAction = {n.outOfAction}
-          onClick={() => onNoobClick(n.id)}
+          onRemoveClick={() => onRemoveClick(n.id)}
+          onNoobClick={() => onNoobClick(n.id)}
+          onAssassinClick={() => onAssassinClick(n.id)}
         >{n.name}</Noob>
       )}
-    </ul>
+      </ul>
+    </div>
   );
 };
 
 NoobList.propTypes = {
   noobs: PropTypes.array.isRequired,
-  onNoobClick: PropTypes.func.isRequired
+  onRemoveClick: PropTypes.func.isRequired,
+  onNoobClick: PropTypes.func.isRequired,
+  onAssassinClick: PropTypes.func.isRequired
 };
 
 

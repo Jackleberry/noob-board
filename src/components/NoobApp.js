@@ -6,9 +6,12 @@ import VisibleNoobList from './VisibleNoobList';
 
 
 const NoobApp =  () => (
-  <div className="fluid-container">
+  <div className="container">
+    <h1 className="text-center">Noob Board</h1>
     <AddNoob />
+    <hr/>
     <VisibleNoobList />
+    <hr/>
     <Footer />
   </div>
 );

@@ -4,17 +4,20 @@ import noobActions from '../actions/noob';
 const AddNoob = (props, { store }) => {
   let input;
   return (
-    <div>
-      <input type="text" ref={node => {
-        input = node;
-      }} />
-      <button onClick={() => {
-        store.dispatch(noobActions.addNoob(input.value));
-        input.value = '';
-        input.focus();
-        }}>
-        Add Noob
-      </button>
+    <div className="input-group">
+      <input className="form-control" ref={node => {
+          input = node;
+        }}
+      />
+      <span className="input-group-btn">
+        <button type="button" className="btn btn-default" onClick={() => {
+          store.dispatch(noobActions.addNoob(input.value));
+          input.value = '';
+          input.focus();
+          }}>
+          Add Noob
+        </button>
+      </span>
     </div>
   );
 };

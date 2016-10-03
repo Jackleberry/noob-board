@@ -24,7 +24,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onNoobClick: id => dispatch(noobActions.toggleNoob(id))
+    onRemoveClick: id => dispatch(noobActions.toggleNoob(id)),
+    onNoobClick: id => dispatch(noobActions.addNoobPoint(id)),
+    onAssassinClick: id => dispatch(noobActions.addAssassinPoint(id))
   };
 };
 

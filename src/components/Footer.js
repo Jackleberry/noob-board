@@ -3,7 +3,7 @@ import FilterLink from './FilterLink';
 
 const Footer = () => {
   return (
-    <div>
+    <div className="text-center">
       Show:
       {' '}
       <FilterLink filter="SHOW_ALL">
