@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 let nextId = 0;
-const AddNoob = ({store}) => {
+const AddNoob = (props, { store }) => {
   let input;
   return (
     <div>
@@ -23,7 +23,7 @@ const AddNoob = ({store}) => {
   );
 };
 
-AddNoob.propTypes = {
+AddNoob.contextTypes = {
   store: PropTypes.object.isRequired
 };
 

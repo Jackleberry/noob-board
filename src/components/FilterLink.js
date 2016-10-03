@@ -3,7 +3,7 @@ import Link from './Link';
 
 class FilterLink extends Component {
   componentDidMount() {
-    const { store } = this.props;
+    const { store } = this.context;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
   }
 
@@ -13,8 +13,10 @@ class FilterLink extends Component {
 
   render() {
     const props = this.props;
-    const { filter, children, store } = props;
+    const { filter, children } = props;
+    const { store } = this.context;
     const state = store.getState();
+
     return (
       <Link
         active={filter === state.visibilityFilter}
@@ -30,8 +32,11 @@ class FilterLink extends Component {
 
 FilterLink.propTypes = {
   filter: PropTypes.string.isRequired,
-  store: PropTypes.object.isRequired,
   children: PropTypes.string.isRequired
+};
+
+FilterLink.contextTypes = {
+  store: PropTypes.object.isRequired
 };
 
 export default FilterLink;

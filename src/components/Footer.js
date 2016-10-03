@@ -1,37 +1,25 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import FilterLink from './FilterLink';
 
-const Footer = ({store}) => {
+const Footer = () => {
   return (
     <div>
-      Showing:
+      Show:
       {' '}
-      <FilterLink
-        filter="SHOW_ALL"
-        store={store}
-        >
-        All</FilterLink>
-      {' '}
-      <FilterLink
-        filter="SHOW_OUT_OF_ACTION"
-        store={store}
-        >
+      <FilterLink filter="SHOW_ALL">
+        All
+      </FilterLink>
+      {' | '}
+      <FilterLink filter="SHOW_OUT_OF_ACTION">
         Out Of Action
       </FilterLink>
-      {' '}
-      <FilterLink
-        filter="SHOW_IN_ACTION"
-        store={store}
-        >
+      {' | '}
+      <FilterLink filter="SHOW_IN_ACTION">
         In Action
       </FilterLink>
       {' '}
     </div>
   );
-};
-
-Footer.propTypes = {
-  store: PropTypes.object.isRequired
 };
 
 export default Footer;

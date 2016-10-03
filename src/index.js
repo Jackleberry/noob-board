@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import noobs from './reducers/Noobs';
 import visibilityFilter from './reducers/VisibilityFilter';
 import React from 'react';
@@ -12,7 +13,9 @@ const store = createStore(combineReducers({
 
 const render = () => {
   ReactDOM.render(
-    <NoobApp store={store} />,
+    <Provider store={store}>
+      <NoobApp />
+    </Provider>,
     document.getElementById('app'));
 };
 
