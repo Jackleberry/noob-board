@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import noobActions from '../actions/noob';
+import * as noobActions from '../actions/noob';
 
 const AddNoob = (props, { store }) => {
   let input;

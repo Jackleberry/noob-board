@@ -22,9 +22,10 @@ class NoobApi {
   static addNoob(name) {
     return fetch('http://localhost:3002/api/noobs', {
       method: "POST",
-      accept: 'application/json',
-      body: JSON.stringify({name})
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify({noob: name})
     })
+      .then(res => res.json());
   }
 
   static addNoobPoint(id) {
