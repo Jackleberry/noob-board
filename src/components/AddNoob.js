@@ -4,7 +4,8 @@ import noobActions from '../actions/noob';
 const AddNoob = (props, { store }) => {
   let input;
   return (
-    <div className="input-group">
+    <div className="row">
+    <div className="input-group col-md-4 col-md-offset-4">
       <input className="form-control" ref={node => {
           input = node;
         }}
@@ -18,6 +19,7 @@ const AddNoob = (props, { store }) => {
           Add Noob
         </button>
       </span>
+    </div>
     </div>
   );
 };

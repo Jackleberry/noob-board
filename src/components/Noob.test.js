@@ -6,7 +6,7 @@ import visibilityFilter from '../reducers/VisibilityFilter';
 import expect from 'expect';
 import { mount } from 'enzyme';
 import noobActions from '../actions/noob';
-import Noob from './Noob';
+import Noob from './NoobRow';
 
 const store = createStore(combineReducers({
   noobs,

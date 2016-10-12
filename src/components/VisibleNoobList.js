@@ -1,7 +1,26 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import NoobList from './NoobList';
-import noobActions from '../actions/noob';
+import * as noobActions from '../actions/noob';
+import * as noobsActions from '../actions/noobs';
+import { bindActionCreators } from 'redux';
+
+
+class VisibleNoobList extends Component {
+
+  componentWillMount() {
+    this.props.noobsActions.loadNoobs();
+  }
+
+  render() {
+    return (
+      <NoobList
+        noobs={this.props.noobs}
+        actions={this.props.actions}
+      />
+    );
+  }
+}
 
 const noobsInAction = ({noobs, visibilityFilter}) => {
   switch (visibilityFilter) {
@@ -24,15 +43,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRemoveClick: id => dispatch(noobActions.toggleNoob(id)),
-    onNoobClick: id => dispatch(noobActions.addNoobPoint(id)),
-    onAssassinClick: id => dispatch(noobActions.addAssassinPoint(id))
+    actions: bindActionCreators(noobActions, dispatch),
+    noobsActions: bindActionCreators(noobsActions, dispatch)
   };
 };
 
-const VisibleNoobList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NoobList);
-
-export default VisibleNoobList;
+export default connect(mapStateToProps, mapDispatchToProps)(VisibleNoobList);

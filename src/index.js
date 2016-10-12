@@ -1,51 +1,20 @@
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import noobs from './reducers/Noobs';
-import visibilityFilter from './reducers/VisibilityFilter';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import NoobApp from './components/NoobApp';
+import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
+import { render } from 'react-dom';
+import initialState from './store/initialState';
+import routes from './routes';
+import configureStore from './store/configureStore';
+import { loadNoobs } from './actions/noobs';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './styles/styles.css';
 
-const initialState = {
-  noobs: [
-    {
-      id: 0,
-      name: "Jackie",
-      noobPoints: 4,
-      assassinPoints: 1,
-      outOfAction: false
-    },
-    {
-      id: 1,
-      name: "Weasel",
-      noobPoints: 14,
-      assassinPoints: 1,
-      outOfAction: false
-    },
-    {
-      id: 2,
-      name: "Supertrolly",
-      noobPoints: 16,
-      assassinPoints: 1,
-      outOfAction: false
-    }
-  ],
-  visibilityFilter: "SHOW_ALL"
-};
+const store = configureStore(initialState);
+store.dispatch(loadNoobs());
 
-const store = createStore(combineReducers({
-  noobs,
-  visibilityFilter
-}), initialState, window.devToolsExtension && window.devToolsExtension());
-
-const render = () => {
-  ReactDOM.render(
+render(
     <Provider store={store}>
-      <NoobApp />
+      <Router routes={routes} history={browserHistory} />
     </Provider>,
-    document.getElementById('app'));
-};
-
-store.subscribe(render);
-render();
+    document.getElementById('app')
+);

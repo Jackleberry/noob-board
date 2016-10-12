@@ -2,6 +2,9 @@
   "name": "Noob-board",
   "version": "1.0.0",
   "description": "Noob board take 2",
+  "engines": {
+    "node": "6.3.1"
+  },
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
@@ -13,17 +16,22 @@
   },
   "author": "Jackie",
   "license": "MIT",
+  "proxy": "http://localhost:3002/",
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
+    "classnames": "^2.2.5",
     "jquery": "2.2.3",
+    "lodash": "^4.16.4",
     "react": "15.0.2",
     "react-dom": "15.0.2",
+    "react-fontawesome": "^1.2.0",
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
+    "shortid": "^2.2.6",
     "toastr": "2.1.2"
   },
   "devDependencies": {
@@ -68,6 +76,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "url": "https://github.com/jackleberry/noob-board"
   }
 }

@@ -3,7 +3,8 @@ import FilterLink from './FilterLink';
 
 const Footer = () => {
   return (
-    <div className="text-center">
+    <div className="row">
+    <div className="text-center col-md-12">
       Show:
       {' '}
       <FilterLink filter="SHOW_ALL">
@@ -18,6 +19,7 @@ const Footer = () => {
         In Action
       </FilterLink>
       {' '}
+    </div>
     </div>
   );
 };

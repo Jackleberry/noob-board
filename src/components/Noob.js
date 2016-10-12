@@ -1,40 +1,79 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
+import * as noobActions from '../actions/noob';
+import isEmpty from 'lodash/isEmpty';
+import FontAwesome from 'react-fontawesome';
+import FlashMessageList from './flash/FlashMessageList';
 
-const Noob = ({noobPoints, assassinPoints, outOfAction, onRemoveClick, onNoobClick, onAssassinClick, children}) => (
-  <li className="list-group-item">
-    <div className="row">
-    <div className="col-xs-9 col-md-9"
-      onClick={onRemoveClick}
-      style={{
-        textDecoration:
-          outOfAction ? 'line-through' : 'none'
-      }}
-    >
-      {children}
-    </div>
-    <div className="col-xs-3 col-md-3">
-      <button className="btn btn-default pull-right noob" onClick={onNoobClick} title="Noob">
-        <span className="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
-        {noobPoints}
-      </button>
-      <span className="pull-right">&nbsp;</span>
-      <button className="btn btn-default pull-right assassin" onClick={onAssassinClick} title="Assassin">
-        <span className="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>&nbsp;
-        {assassinPoints}
-      </button>
-    </div>
-    </div>
-  </li>
-);
+class Noob extends Component {
+  constructor(props) {
+    super(props);
+    if (isEmpty(props.visibleNoob)) {
+      props.actions.loadNoob(props.params.id);
+    }
+  }
+  render() {
+    const { actions, visibleNoob } = this.props;
+    const { id } = this.props.params;
+    if (visibleNoob) {
+      return (
+        <div className="row">
+          <div className="col-md-4 col-md-offset-4">
+            <div className="row">
+              <div className="col-xs-3">
+                <Link to="/" class="linkie">
+                  <FontAwesome name="angle-left" size="4x"/><br/>
+                </Link>
+              </div>
+              <div className="col-xs-6 text-center">
+                <h2>{visibleNoob.name}</h2>
+              </div>
+            </div>
+            <br/>
+            <FlashMessageList/>
+            <div className="row">
+              <div className="col-xs-6 text-center" onClick={() => actions.addNoobPoint(id)}>
+                  <FontAwesome name="reddit-alien" size="4x"/><br/>
+                  <span style={{fontSize: 40}}>{visibleNoob.noobPoints}</span>
+              </div>
+              <div className="col-xs-6 text-center" onClick={() => actions.addAssassinPoint(id)}>
+                  <FontAwesome name="gitlab" size="4x"/><br/>
+                  <span style={{fontSize: 40}}>{visibleNoob.assassinPoints}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="row">
+          <div className="col-md-12">
+            Loading
+          </div>
+        </div>
+      );
+    }
+  }
+}
 
 Noob.propTypes = {
-  noobPoints: PropTypes.number.isRequired,
-  assassinPoints: PropTypes.number.isRequired,
-  outOfAction: PropTypes.bool.isRequired,
-  onRemoveClick: PropTypes.func.isRequired,
-  onNoobClick: PropTypes.func.isRequired,
-  onAssassinClick: PropTypes.func.isRequired,
-  children: PropTypes.string.isRequired
+  visibleNoob: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+  params: PropTypes.object
 };
 
-export default Noob;
+const mapStateToProps = (state) => {
+  return {
+    visibleNoob: state.visibleNoob
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(noobActions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Noob);

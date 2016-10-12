@@ -1,36 +1,35 @@
 import React, { PropTypes } from 'react';
-import Noob from './Noob';
+import NoobRow from './NoobRow';
 
 const NoobList = ({
   noobs,
-  onRemoveClick,
-  onNoobClick,
-  onAssassinClick
+  actions
 }) => {
   return (
-    <div className="panel panel-default">
+    <div className="row">
+    <div className="panel panel-default col-md-4 col-md-offset-4">
       <ul className="list-group">
       {noobs.map(n =>
-        <Noob
+        <NoobRow
           key = {n.id}
+          id = {n.id}
           noobPoints={n.noobPoints}
           assassinPoints={n.assassinPoints}
           outOfAction = {n.outOfAction}
-          onRemoveClick={() => onRemoveClick(n.id)}
-          onNoobClick={() => onNoobClick(n.id)}
-          onAssassinClick={() => onAssassinClick(n.id)}
-        >{n.name}</Noob>
+          onRemoveClick={() => actions.toggleNoob(n.id)}
+          onNoobClick={() => actions.addNoobPoint(n.id)}
+          onAssassinClick={() => actions.addAssassinPoint(n.id)}
+        >{n.name}</NoobRow>
       )}
       </ul>
+    </div>
     </div>
   );
 };
 
 NoobList.propTypes = {
   noobs: PropTypes.array.isRequired,
-  onRemoveClick: PropTypes.func.isRequired,
-  onNoobClick: PropTypes.func.isRequired,
-  onAssassinClick: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 
