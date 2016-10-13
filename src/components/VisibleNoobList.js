@@ -35,6 +35,12 @@ const noobsInAction = ({noobs, visibilityFilter}) => {
   }
 };
 
+VisibleNoobList.propTypes = {
+  noobsActions: PropTypes.func.isRequired,
+  actions: PropTypes.func.isRequired,
+  noobs: PropTypes.array.isRequired
+};
+
 const mapStateToProps = (state) => {
   return {
     noobs: noobsInAction({...state})

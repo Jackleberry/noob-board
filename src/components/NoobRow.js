@@ -19,19 +19,19 @@ const NoobRow = ({
       className="col-xs-6 col-md-6"
       style={{
         textDecoration:
-          outOfAction ? 'line-through' : 'none'
+          outOfAction ? "line-through" : "none"
       }}>
       {children}
     </div>
     </Link>
     <div className="col-xs-6 col-md-6">
       <div className="btn btn-default pull-right assassin badge alert-success" onClick={onAssassinClick} title="Assassin">
-        <FontAwesome name='gitlab' size='2x'/>&nbsp;
+        <FontAwesome name="gitlab" size="2x"/>&nbsp;
         <span style={{fontSize: 20}}>{assassinPoints}</span>
       </div>
       <span className="pull-right">&nbsp;</span>
       <div className="btn btn-default pull-right noob badge alert-warning" onClick={onNoobClick} title="Noob">
-        <FontAwesome name='reddit-alien' size='2x'/>&nbsp;
+        <FontAwesome name="reddit-alien" size="2x"/>&nbsp;
         <span style={{fontSize: 20}}>{noobPoints}</span>
       </div>
     </div>

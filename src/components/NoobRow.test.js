@@ -6,15 +6,15 @@ import visibilityFilter from '../reducers/VisibilityFilter';
 import expect from 'expect';
 import { mount } from 'enzyme';
 import noobActions from '../actions/noob';
-import Noob from './NoobRow';
+import NoobRow from './NoobRow';
 
 const store = createStore(combineReducers({
   noobs,
   visibilityFilter
 }), window.devToolsExtension && window.devToolsExtension());
 
-describe('Noob component', () => {
-  it('should render the Noob component', () => {
+describe('NoobRow component', () => {
+  it('should render the NoobRow component', () => {
     store.dispatch(noobActions.addNoob("noob"));
     const noob = store.getState().noobs[0];
     const props = {
@@ -26,7 +26,7 @@ describe('Noob component', () => {
       onAssassinClick: () => store.dispatch(noobActions.addAssassinPoint(noob.id))
     };
 
-    const wrapper = mount(<Provider store={store}><Noob {...props} /></Provider>);
+    const wrapper = mount(<Provider store={store}><NoobRow {...props} /></Provider>);
 
     const noobPointButton = wrapper.find('.noob').first();
     noobPointButton.simulate('click');

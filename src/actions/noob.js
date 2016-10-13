@@ -17,9 +17,9 @@ export function addNoob(name) {
         }));
         setTimeout(() => dispatch(deleteFlashMessage(flashId)), 3000);
         throw(error);
-      })
+      });
   };
-};
+}
 
 const toggleNoob = (id) => {
   return {
@@ -51,7 +51,7 @@ export function addNoobPoint(id) {
         throw(error);
       });
   };
-};
+}
 
 const addAssassinPointLocal = (id) => {
   return {
@@ -76,7 +76,7 @@ export function addAssassinPoint(id) {
         throw(error);
       });
   };
-};
+}
 
 export function loadNoobSuccess(noob) {
   return {
