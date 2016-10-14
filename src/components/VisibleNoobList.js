@@ -36,8 +36,8 @@ const noobsInAction = ({noobs, visibilityFilter}) => {
 };
 
 VisibleNoobList.propTypes = {
-  noobsActions: PropTypes.func.isRequired,
-  actions: PropTypes.func.isRequired,
+  noobsActions: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
   noobs: PropTypes.array.isRequired
 };
 
