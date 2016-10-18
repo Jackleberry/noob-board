@@ -24,23 +24,23 @@ class Noob extends Component {
             <div className="row">
               <div className="col-xs-3">
                 <Link to="/" class="linkie">
-                  <FontAwesome name="angle-left" size="4x"/><br/>
+                  <FontAwesome name="angle-left linkie" size="2x"/><br/>
                 </Link>
               </div>
-              <div className="col-xs-6 text-center">
-                <h2>{visibleNoob.name}</h2>
+              <div className="col-xs-6 text-center heading">
+                <h1>{visibleNoob.name}</h1>
               </div>
             </div>
             <br/>
             <FlashMessageList/>
             <div className="row">
-              <div className="col-xs-6 text-center" onClick={() => actions.addNoobPoint(id)}>
+              <div className="col-xs-6 text-center noob" onClick={() => actions.addNoobPoint(id)}>
                   <FontAwesome name="reddit-alien" size="4x"/><br/>
-                  <span style={{fontSize: 40}}>{visibleNoob.noobPoints}</span>
+                  <span className="points">{visibleNoob.noobPoints}</span>
               </div>
-              <div className="col-xs-6 text-center" onClick={() => actions.addAssassinPoint(id)}>
+              <div className="col-xs-6 text-center assassin" onClick={() => actions.addAssassinPoint(id)}>
                   <FontAwesome name="gitlab" size="4x"/><br/>
-                  <span style={{fontSize: 40}}>{visibleNoob.assassinPoints}</span>
+                  <span className="points">{visibleNoob.assassinPoints}</span>
               </div>
             </div>
           </div>

@@ -12,7 +12,6 @@ const NoobsPage = () => (
     <AddNoob/>
     <br/>
     <VisibleNoobList/>
-    <Footer/>
   </div>
 );
 

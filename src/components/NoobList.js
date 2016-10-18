@@ -7,7 +7,7 @@ const NoobList = ({
 }) => {
   return (
     <div className="row">
-    <div className="panel panel-default col-md-4 col-md-offset-4">
+    <div className="panel col-md-4 col-md-offset-4">
       <ul className="list-group">
       {noobs.map(n =>
         <NoobRow

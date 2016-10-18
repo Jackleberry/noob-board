@@ -10,9 +10,54 @@
 }
 
 .linkie {
-  color: Black
+  color: black;
+  opacity: 0.8;
+  padding-top: 25px;
 }
 
-.linkie:active {
-  color: Black
+.linkie:hover {
+  opacity: 0.6;
+}
+
+.heading {
+  color: black;
+  opacity: 0.8;
+  letter-spacing: 2px;
+}
+
+.noob-row,
+.noob-row>a {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: black;
+  opacity: 0.9;
+}
+
+.noob-row>a:hover {
+  opacity: 0.6;
+}
+.assassin,
+.noob {
+  cursor: pointer;
+}
+
+.noob {
+  color: forestgreen;
+}
+
+.assassin {
+  color: midnightblue;
+}
+
+.points {
+  font-size: 40px;
+}
+
+.noob:hover {
+  opacity: 0.5
+}
+.assassin:hover {
+  opacity: 0.5
 }
