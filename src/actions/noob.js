@@ -39,7 +39,6 @@ export function addNoobPoint(id) {
   return dispatch => {
     dispatch(addNoobPointLocal(id));
     return noobApi.addNoobPoint(id)
-      .then(noob => dispatch(loadNoobSuccess(noob)))
       .catch(error => {
         const flashId = shortid.generate();
         dispatch(addFlashMessage({
@@ -64,7 +63,6 @@ export function addAssassinPoint(id) {
   return dispatch => {
     dispatch(addAssassinPointLocal(id));
     return noobApi.addAssassinPoint(id)
-      .then(noob => dispatch(loadNoobSuccess(noob)))
       .catch(error => {
         const flashId = shortid.generate();
         dispatch(addFlashMessage({

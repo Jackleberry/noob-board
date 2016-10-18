@@ -3,17 +3,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import * as noobActions from '../actions/noob';
-import isEmpty from 'lodash/isEmpty';
 import FontAwesome from 'react-fontawesome';
 import FlashMessageList from './flash/FlashMessageList';
 
 class Noob extends Component {
-  constructor(props) {
-    super(props);
-    if (isEmpty(props.visibleNoob)) {
-      props.actions.loadNoob(props.params.id);
-    }
+
+  componentWillMount() {
+    this.props.actions.loadNoob(this.props.params.id);
   }
+
   render() {
     const { actions, visibleNoob } = this.props;
     const { id } = this.props.params;
