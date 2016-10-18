@@ -13,26 +13,19 @@ const NoobRow = ({
   children
 }) => (
   <li className="list-group-item">
-    <div className="row noob-row">
-      <Link to={`/noob/${id}`}>
-        <div
-          className="col-xs-6 col-md-6"
-          style={{
-            textDecoration:
-              outOfAction ? "line-through" : "none"
-          }}>
+    <div className="row">
+      <div className="col-xs-12 col-md-12">
+        <Link className="noob-name" to={`/noob/${id}`}>
           {children}
-        </div>
-      </Link>
-      <div className="col-xs-6 col-md-6">
+        </Link>
         <div className="pull-right assassin" onClick={onAssassinClick} title="Assassin">
           <FontAwesome name="gitlab" size="2x"/>&nbsp;
-          <span style={{fontSize: 20}}>{assassinPoints}</span>
+          <span className="points-sm">{assassinPoints}</span>
         </div>
         <span className="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <div className="pull-right noob" onClick={onNoobClick} title="Noob">
           <FontAwesome name="reddit-alien" size="2x"/>&nbsp;
-          <span style={{fontSize: 20}}>{noobPoints}</span>
+          <span className="points-sm">{noobPoints}</span>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+/*eslint-disable import/default*/
 import React from 'react';
 import { Provider } from 'react-redux';
 import expect from 'expect';
@@ -17,5 +18,6 @@ describe('AddNoob component', () => {
     const noobs = store.getState().noobs;
     expect(noobs.length).toBe(1);
     expect(noobs[0].noobPoints).toEqual(0);
+    expect(true).toEqual(true);
   });
 });

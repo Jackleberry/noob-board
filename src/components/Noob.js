@@ -34,11 +34,11 @@ class Noob extends Component {
             <div className="row">
               <div className="col-xs-6 text-center noob" onClick={() => actions.addNoobPoint(id)}>
                   <FontAwesome name="reddit-alien" size="4x"/><br/>
-                  <span className="points">{visibleNoob.noobPoints}</span>
+                  <span className="points-lg">{visibleNoob.noobPoints}</span>
               </div>
               <div className="col-xs-6 text-center assassin" onClick={() => actions.addAssassinPoint(id)}>
                   <FontAwesome name="gitlab" size="4x"/><br/>
-                  <span className="points">{visibleNoob.assassinPoints}</span>
+                  <span className="points-lg">{visibleNoob.assassinPoints}</span>
               </div>
             </div>
           </div>

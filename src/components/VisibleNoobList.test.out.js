@@ -1,17 +1,14 @@
+/*eslint-disable import/default*/
 import React from 'react';
-import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import noobs from '../reducers/Noobs';
-import visibilityFilter from '../reducers/VisibilityFilter';
 import expect from 'expect';
 import { mount, shallow } from 'enzyme';
 import VisibleNoobList from './VisibleNoobList';
-import noobActions from '../actions/noob';
+import * as noobActions from '../actions/noob';
+import configureStore from '../store/configureStore';
+import initialState from '../store/initialState';
 
-const store = createStore(combineReducers({
-  noobs,
-  visibilityFilter
-}), window.devToolsExtension && window.devToolsExtension());
+const store = configureStore(initialState);
 
 describe('VisibleNoobList component', () => {
   it('should render the component', () => {

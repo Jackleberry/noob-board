@@ -1,17 +1,14 @@
+/*eslint-disable import/default*/
 import React from 'react';
-import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import noobs from '../reducers/Noobs';
-import visibilityFilter from '../reducers/VisibilityFilter';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import noobActions from '../actions/noob';
+import * as noobActions from '../actions/noob';
 import NoobRow from './NoobRow';
+import configureStore from '../store/configureStore';
+import initialState from '../store/initialState';
 
-const store = createStore(combineReducers({
-  noobs,
-  visibilityFilter
-}), window.devToolsExtension && window.devToolsExtension());
+const store = configureStore(initialState);
 
 describe('NoobRow component', () => {
   it('should render the NoobRow component', () => {
@@ -21,7 +18,6 @@ describe('NoobRow component', () => {
       noobPoints: noob.noobPoints,
       assassinPoints: noob.assassinPoints,
       outOfAction: noob.outOfAction,
-      onRemoveClick: () => store.dispatch(noobActions.toggleNoob(noob.id)),
       onNoobClick: () => store.dispatch(noobActions.addNoobPoint(noob.id)),
       onAssassinClick: () => store.dispatch(noobActions.addAssassinPoint(noob.id))
     };

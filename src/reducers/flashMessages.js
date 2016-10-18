@@ -8,12 +8,13 @@ export default (state=[], action) => {
         ...state,
         action.flashMessage
       ];
-    case types.DELETE_FLASH_MESSAGE:
+    case types.DELETE_FLASH_MESSAGE: {
       const index = findIndex(state, {id: action.id});
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1)
       ];
+    }
     default:
       return state;
   }
