@@ -19,12 +19,11 @@ const NoobRow = ({
           {children}
         </Link>
         <div className="pull-right assassin" onClick={onAssassinClick} title="Assassin">
-          <FontAwesome name="gitlab" size="2x"/>&nbsp;
+          <FontAwesome name="gitlab" size="2x"/>
           <span className="points-sm">{assassinPoints}</span>
         </div>
-        <span className="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <div className="pull-right noob" onClick={onNoobClick} title="Noob">
-          <FontAwesome name="reddit-alien" size="2x"/>&nbsp;
+          <FontAwesome name="reddit-alien" size="2x"/>
           <span className="points-sm">{noobPoints}</span>
         </div>
       </div>
