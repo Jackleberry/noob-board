@@ -29,7 +29,7 @@ export function logout() {
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
   };
-};
+}
 
 export function setCurrentUser(user) {
   return {

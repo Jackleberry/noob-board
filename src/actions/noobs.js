@@ -15,7 +15,7 @@ export function loadNoobs() {
       res => dispatch(loadNoobsSuccess(res.data)),
       err => dispatch(addFailureFlashMessage(err.response.data.error))
     ).catch(error => {
-      dispatchFailureMessage("Failed to load noob due to connection failure.");
+      dispatch(addFailureFlashMessage("Failed to load noob due to connection failure."));
       throw(error);
     });
   };

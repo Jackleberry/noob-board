@@ -31,7 +31,7 @@ class NavigationBar extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            { isAuthenticated ? userLinks : guestLinks }
+            {isAuthenticated ? userLinks : guestLinks}
           </div>
 
           <div className="collapse navbar-collapse">
