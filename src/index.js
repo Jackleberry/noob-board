@@ -9,9 +9,17 @@ import configureStore from './store/configureStore';
 import { loadNoobs } from './actions/noobs';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.css';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import { setCurrentUser } from './actions/auth';
+import jwt from 'jsonwebtoken';
 
 const store = configureStore(initialState);
 store.dispatch(loadNoobs());
+
+if (localStorage.jwtToken){
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwt.decode(localStorage.jwtToken)));
+}
 
 render(
     <Provider store={store}>

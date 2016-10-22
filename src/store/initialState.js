@@ -2,7 +2,11 @@ const initialState = {
   noobs: [],
   visibleNoob: {},
   visibilityFilter: "SHOW_ALL",
-  flashMessages: []
+  flashMessages: [],
+  auth: {
+    isAuthenticated: false,
+    user: {}
+  }
 };
 
 export default initialState;

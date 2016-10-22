@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import * as noobActions from '../actions/noob';
 import FontAwesome from 'react-fontawesome';
-import FlashMessageList from './flash/FlashMessageList';
 
 class Noob extends Component {
 
@@ -21,7 +20,7 @@ class Noob extends Component {
           <div className="col-md-4 col-md-offset-4">
             <div className="row">
               <div className="col-xs-3">
-                <Link to="/" class="linkie">
+                <Link to="/noobs" class="linkie">
                   <FontAwesome name="angle-left linkie" size="2x"/><br/>
                 </Link>
               </div>
@@ -30,7 +29,6 @@ class Noob extends Component {
               </div>
             </div>
             <br/>
-            <FlashMessageList/>
             <div className="row">
               <div className="col-xs-6 text-center noob" onClick={() => actions.addNoobPoint(id)}>
                   <FontAwesome name="reddit-alien" size="4x"/><br/>

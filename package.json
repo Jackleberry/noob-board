@@ -24,10 +24,12 @@
   "license": "MIT",
   "proxy": "http://localhost:3002/",
   "dependencies": {
+    "axios": "^0.15.2",
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
     "classnames": "^2.2.5",
     "jquery": "2.2.3",
+    "jsonwebtoken": "^7.1.9",
     "lodash": "^4.16.4",
     "react": "15.0.2",
     "react-dom": "15.0.2",
@@ -40,7 +42,8 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "2.0.1",
     "shortid": "^2.2.6",
-    "toastr": "2.1.2"
+    "toastr": "2.1.2",
+    "validator": "^5.4.0"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",
